@@ -208,3 +208,33 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-soft);
   font-size: 14px;
 }
+
+/* ── Mobile ── */
+
+@media (max-width: 640px) {
+  .page {
+    padding: 0 16px 48px;
+  }
+
+  .site-header {
+    padding: 16px 0;
+    margin-bottom: 20px;
+  }
+
+  .site-header h1 {
+    font-size: 16px;
+  }
+
+  .filter-chip {
+    padding: 10px 14px; /* taller touch target */
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .card-image img {
+    padding: 10px;
+  }
+}

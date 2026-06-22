@@ -96,3 +96,15 @@
   width: 100%;
   display: block;
 }
+
+@media (max-width: 640px) {
+  .chat-attach-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+
+  .chat-mockup-result {
+    max-width: 100%;
+  }
+}
