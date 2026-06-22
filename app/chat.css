@@ -108,11 +108,16 @@
   resize: none;
   border: 1px solid var(--line);
   border-radius: 8px;
+  box-sizing: border-box;
+  min-height: 44px;
+  max-height: 120px;
   padding: 10px 12px;
+  line-height: 1.4;
   font-size: 14px;
   font-family: inherit;
   background: var(--paper);
   color: var(--ink);
+  overflow-y: auto;
 }
 
 .chat-input:focus {
@@ -138,4 +143,20 @@
 .chat-send:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .chat-thread {
+    max-height: 380px;
+    padding: 16px;
+  }
+
+  .chat-input {
+    font-size: 16px; /* prevents iOS Safari auto-zoom on focus */
+  }
+
+  .chat-send {
+    min-height: 44px;
+    padding: 0 14px;
+  }
 }

@@ -19,6 +19,7 @@ export default function ChatAssistant() {
   const endRef = useRef(null);
   const fileInputRef = useRef(null);
   const menuRef = useRef(null);
+  const textareaRef = useRef(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -33,6 +34,13 @@ export default function ChatAssistant() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Reset textarea height when input is cleared after send.
+  useEffect(() => {
+    if (input === '' && textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+    }
+  }, [input]);
 
   // When the site-wide language changes, swap the greeting text if the
   // conversation hasn't started yet (still just the initial message).
@@ -176,11 +184,16 @@ export default function ChatAssistant() {
         />
 
         <textarea
+          ref={textareaRef}
           className="chat-input"
           placeholder={t.placeholder}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
+          onInput={(e) => {
+            e.target.style.height = 'auto';
+            e.target.style.height = e.target.scrollHeight + 'px';
+          }}
           rows={1}
         />
         <button className="chat-send" onClick={handleSend} disabled={loading}>
