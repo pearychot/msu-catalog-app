@@ -1,0 +1,45 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  mix-blend-mode: lighten;
+}
+
+.site-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lang-toggle {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lang-toggle button {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 5px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.lang-toggle button.active {
+  background: var(--accent);
+  color: #fff;
+}
